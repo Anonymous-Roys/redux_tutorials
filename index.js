@@ -1,5 +1,6 @@
 const redux = require('redux')
 const createStore = redux.createStore;
+const combineReducers =  redux.combineReducers;
 
 const BUY_CAKE = "BUY_CAKE";
 const BUY_ICECREAM = "BUY_ICECREAM";
@@ -76,9 +77,15 @@ const iceCreamReducer = (state=initialIceCreamState, action)=> {
     }
 }
 
+
+const rootReducer = combineReducers({
+    cake: cakeReducer,
+    iceCream: iceCreamReducer
+})
+
 //stores
 //holding application state
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 //allows access to state to be updated using the getState
 console.log('Initial state', store.getState());
