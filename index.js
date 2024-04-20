@@ -31,22 +31,22 @@ const initialIceCreamState = {
 
 
 //------------------REDUCER-----------------
-// (previousState, action) => newState
-const reducer = (state=initialState, action)=> {
-    switch(action.type){
-        case BUY_CAKE: return{
-            ...state,   //copying the state object
-            numOfCakes: state.numOfCakes -1
-        }
-        case BUY_ICECREAM: return{
-            ...state,   //copying the state object
-            numOfIceCreams: state.numOfIceCreams -1
-        }
 
-        default:
-            return state
-    }
-}
+// const reducer = (state=initialState, action)=> {
+//     switch(action.type){
+//         case BUY_CAKE: return{
+//             ...state,   //copying the state object
+//             numOfCakes: state.numOfCakes -1
+//         }
+//         case BUY_ICECREAM: return{
+//             ...state,   //copying the state object
+//             numOfIceCreams: state.numOfIceCreams -1
+//         }
+
+//         default:
+//             return state
+//     }
+// }
 
 // cake reducer
 const cakeReducer = (state=initialCakeState, action)=> {
@@ -63,7 +63,18 @@ const cakeReducer = (state=initialCakeState, action)=> {
 
 
 //icecream reducer
+const iceCreamReducer = (state=initialIceCreamState, action)=> {
+    switch(action.type){
 
+        case BUY_ICECREAM: return{
+            ...state,   //copying the state object
+            numOfIceCreams: state.numOfIceCreams -1
+        }
+
+        default:
+            return state
+    }
+}
 
 //stores
 //holding application state
