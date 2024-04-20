@@ -22,10 +22,10 @@ function buyIceCream(){
 //     numOfCakes:10,
 //     numOfIceCreams:20
 // }
-const initialCakes = {
+const initialCakeState = {
     numOfCakes:10
 }
-const initialIceCream = {
+const initialIceCreamState = {
     numOfIceCreams:20
 }
 
@@ -47,6 +47,23 @@ const reducer = (state=initialState, action)=> {
             return state
     }
 }
+
+// cake reducer
+const cakeReducer = (state=initialCakeState, action)=> {
+    switch(action.type){
+        case BUY_CAKE: return{
+            ...state,   //copying the state object
+            numOfCakes: state.numOfCakes -1
+        }
+    
+        default:
+            return state
+    }
+}
+
+
+//icecream reducer
+
 
 //stores
 //holding application state
